@@ -1,5 +1,8 @@
 # coding: utf-8
 
+# import torndb
+# db = torndb.Connection('127.0.0.1:3306', 'Material', user='root', password='')
+
 from models import db
 from security import clean, text2Html
 from userOperation import getTeacher
@@ -49,6 +52,17 @@ def get_info_by_infoid(Iid):
     return db.get(sql)
 
 
+def get_info_by_infoid_all(Iid):
+    """使用信息id号查找消息 02"""
+
+    sql='''
+        select I.idInfo,I.t‎itle,I.date,I.type,T.name,I.tid,I.detail
+        from Teacher as T,Info as I
+        where T.idTeacher=I.tid and I.idInfo = %s
+        ''' % clean(Iid)
+    return db.get(sql)
+
+
 def publish_notif(tid, idInfo, detail, title):
     """教师发布课程 通知 """
 
@@ -94,3 +108,13 @@ def update_notif(idInfo, detail, title):
     detail = text2Html(detail)
     sql = "update Info set detail='%s',t‎itle='%s' where idInfo='%s';" % (detail, title, idInfo)
     db.execute(sql)
+
+def delete_notif(iid,tid):
+    """教师删除发布的消息"""
+
+    sql='delete from Info where tid="%s" and idInfo="%s"' % (clean(tid),clean(iid))
+    db.execute(sql)
+
+
+if __name__=="__main__":
+    print get_all_notif()

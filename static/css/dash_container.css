@@ -74,6 +74,12 @@ label{
 	font-size: 0.97em;
 }
 
+.info-right{
+	margin-top: 30px;
+	float: right;
+	color: #666;
+	font-size: 0.85em;
+}
 
 /*******submitassignment*********/
 
@@ -114,9 +120,11 @@ form h4{
 	margin-top: 50px;
 }
 
+/* 作业预览控制文件大小的 */
 .pic-homework {
-	max-width: 600px;
+	max-width: 500px;
 }
 
 textarea{
-	resize: none;}
+	resize: none;
+}

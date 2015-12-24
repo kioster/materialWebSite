@@ -33,6 +33,7 @@
 	padding: 1%;
 	padding-left: 15%;
 	padding-right: 15%;
+	padding-bottom: 3em;
 	cursor: default;
 }
 
@@ -45,9 +46,11 @@
 {
 	font-size: 1.5em;
 	font-weight: 700;
-	border-bottom: 1px solid #000000;
+	border-bottom: 1px solid #EEEEEE;
 	text-align: center;
-	margin-bottom: 10px;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	margin-top: 20px;
 }
 
 .sub-part
@@ -57,9 +60,14 @@
 	margin: 8px 4%;
 	vertical-align: top;
 	cursor: default;
+<<<<<<< HEAD:front-end/static/css/index.css
 	padding-left: 2%;
 	padding-right: 2%;
 	padding-bottom: 1%;
+=======
+	margin-bottom: 50px;
+	padding: 30px;
+>>>>>>> d99c62b9945b42296a5f3f54459bf5def826c7de:static/css/index.css
 }
 
 .sub-part:hover
@@ -77,6 +85,9 @@
 /**************footer*************/
 #footer
 {
-	background-color: #959595;
-	height: 70px;
+	background-color: #F1563C;
+	height: 100px;
+	padding: 30px;
+	text-align: center;
+	color: #111;
 }

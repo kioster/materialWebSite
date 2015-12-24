@@ -6,17 +6,25 @@ from handlers.dash import DashBoardHandler
 from handlers.teaDashboard import CourseEditHandler, EditingCertainCourseHandler, DeleteCourseHandler, \
     CommentingHandler, CommentingIndexHandler, MyStudentsHandler, MyNotifHandler, PublishEntrenceHandler
 from handlers.information import PublishNotificationHandler, PublishResourceHandler, EditNotificationHandler, \
-    EditResourceHandler
+    EditResourceHandler,NotificationIndexHandler,ResourseDetailHandler, InfoDetailHandler, RemoveNotifHandler
 from handlers.stuDashboard import MyHomeworkHandler, MyMessagesHandler, ViewHomeworkHandler, RemoveHomeworkHandler, \
     SetCourseHandler, SetCourseListHandler
 from handlers.submitAssignment import submitAssgnmentHandler, submitStep2, submitStep3, submitStep4, submitVedio
 from handlers.newuser import SignUpHandler, AdminHandler, AuthUserHandler
-
+from handlers.ForgetPass import ForgetPassHandler,VarifyCodeHandler
 urls = [
     (r'/', IndexHandler),
     (r'/login', LoginHandler),
     (r'/logout', LogoutHandler),
     (r'/signup', SignUpHandler),
+    (r'/forgetpass', ForgetPassHandler),
+    (r'/varifycode',VarifyCodeHandler),
+
+    (r'/notification/info/(.*)',InfoDetailHandler),
+    (r'/notification/resource/(.*)',ResourseDetailHandler),
+    (r'/notification/(.*)',InfoDetailHandler),
+    (r'/notification',NotificationIndexHandler),
+
 
     # 教师接口
     (r'/dash/commenting/viewHomework/(.*)', ViewHomeworkHandler),
@@ -32,6 +40,7 @@ urls = [
     (r'/dash/publishing', PublishEntrenceHandler),
     (r'/dash/allStudents', MyStudentsHandler),
     (r'/dash/notifications', MyNotifHandler),
+    (r'/dash/removeNotif/(.*)',RemoveNotifHandler),
 
     # 学生接口
     (r'/dash/setCourse/(.*)', SetCourseHandler),
@@ -50,7 +59,7 @@ urls = [
 
     # 管理员新用户认证
     (r'/TWF5IEplZmYgRGVhbiBCbGVzcyBNeSBXaWVyZCBXZWIgQXBwbGljYXRpb24=/(.*)', AuthUserHandler),
-    (r'/TWF5IEplZmYgRGVhbiBCbGVzcyBNeSBXaWVyZCBXZWIgQXBwbGljYXRpb24=', AdminHandler),
+    (r'/Material/Admin/TWF5IEplZmYgRGVhbiBCbGVzcyBNeSBXaWVyZCBXZWIgQXBwbGljYXRpb24=', AdminHandler),
 
     # error
     (r'/.*', ErrorHandler),
